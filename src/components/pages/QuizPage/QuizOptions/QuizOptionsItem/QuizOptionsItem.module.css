@@ -1,9 +1,13 @@
 .item {
-    flex-basis: 50%;
+    flex: 1;
 }
 
 .counter {
-    font-size: 20px;
+    font-size: 14px;
     color: var(--orange-100);
     margin-right: 8px;
+
+    @media screen and (min-width: 1024px) {
+        font-size: 20px;
+    }
 }

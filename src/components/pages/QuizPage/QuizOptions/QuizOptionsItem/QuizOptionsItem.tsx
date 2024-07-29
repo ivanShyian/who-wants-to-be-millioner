@@ -1,6 +1,7 @@
 import React from 'react';
 import { NumberUtils } from '@/utils';
 import SHoneycomb from '@/components/ui/SHoneycomb/SHoneycomb';
+import { useIsLargeScreen } from '@/use';
 import styles from './QuizOptionsItem.module.css';
 import type { QuizOptionsItemTypes } from './QuizOptionsItem.types';
 
@@ -11,6 +12,8 @@ function QuizOptionsItem({
   isWrong,
   isCorrect,
 }: QuizOptionsItemTypes.Props) {
+  const { isLargeScreen } = useIsLargeScreen();
+
   return (
     <SHoneycomb
       className={styles.item}
@@ -18,6 +21,7 @@ function QuizOptionsItem({
       onClick={() => onAnswer(index)}
       correct={isCorrect}
       wrong={isWrong}
+      size={isLargeScreen ? 'md' : 'sm'}
     >
       <p>
         <span className={styles.counter}>

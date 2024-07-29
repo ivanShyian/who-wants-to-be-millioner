@@ -4,7 +4,7 @@ import styles from './QuizItem.module.css';
 import { QuizOptionsItem } from './QuizOptionsItem';
 
 function QuizOptions({
-  answer_index: answerIndex,
+  answerIndex,
   options,
   onAnswer,
 }: QuizOptionsTypes.Props) {
@@ -35,7 +35,7 @@ function QuizOptions({
   return (
     <ul className={styles.options}>
       {options.map((option, itemIndex) => (
-        <li key={option}>
+        <li key={option} className={styles.option}>
           <QuizOptionsItem
             index={itemIndex}
             option={option}

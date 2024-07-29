@@ -2,9 +2,26 @@
     height: 100%;
     display: flex;
     justify-content: center;
+    flex-direction: column;
     align-items: center;
     column-gap: 32px;
     background: var(--black-5);
+
+    @media screen and (min-width: 1024px) {
+        flex-direction: row;
+    }
+}
+
+.svgWrapper {
+    width: 288px;
+    height: 192px;
+    margin-bottom: 32px;
+
+    @media screen and (min-width: 1024px) {
+        width: 624px;
+        height: 367px;
+        margin-bottom: 0;
+    }
 }
 
 .content {
@@ -15,10 +32,22 @@
 .score {
     font-size: 32px;
     color: var(--black-40);
+    text-align: center;
+    margin-bottom: 8px;
+
+    @media screen and (min-width: 1024px) {
+        text-align: left;
+    }
 }
 
 .award {
     font-size: 56px;
+    text-align: center;
+
+    @media screen and (min-width: 1024px) {
+        text-align: left;
+        font-size: 56px;
+    }
 }
 
 .button {

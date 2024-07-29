@@ -10,11 +10,11 @@ function QuizPage() {
     <QuizStepper questions={questions}>
       {(currentQuestion, nextStep) => (
         <div className={styles.wrapper}>
-          <h1>{currentQuestion.question}</h1>
+          <p className={styles.question}>{currentQuestion.question}</p>
 
           <QuizOptions
             options={currentQuestion.options}
-            answer_index={currentQuestion.answer_index}
+            answerIndex={currentQuestion.answer_index}
             onAnswer={nextStep}
           />
         </div>

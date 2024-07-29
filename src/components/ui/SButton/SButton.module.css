@@ -25,8 +25,8 @@
 }
 
 /* Sizes */
-.button.xs {
-    padding: 4px 8px;
+.button.sm {
+    padding: 16px 24px;
     font-size: 0.875rem;
 }
 

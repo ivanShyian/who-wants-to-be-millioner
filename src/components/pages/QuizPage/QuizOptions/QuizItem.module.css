@@ -1,5 +1,18 @@
 .options {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
     row-gap: 32px;
+}
+
+.option {
+    flex-basis: 100%;
+
+    @media screen and (min-width: 1024px) {
+        flex-basis: unset;
+    }
+}
+
+.item {
+    flex-basis: 100%;
 }

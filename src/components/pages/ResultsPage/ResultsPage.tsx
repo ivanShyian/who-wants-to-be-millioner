@@ -11,17 +11,22 @@ import SvgThumbUp from '@/assets/images/thumb-up.svg';
 
 import { Urls } from '@/config';
 import { SButton } from '@/components/ui';
+import { useIsLargeScreen } from '@/use';
 import style from './ResultsPage.module.css';
 
 function ResultsPage() {
   const router = useRouter();
+  const { isLargeScreen } = useIsLargeScreen();
+
   const dispatch = useDispatch<AppDispatch>();
 
   const currentIndex = useSelector(selectCurrentIndex);
   const questions = useSelector(selectPrizeAmounts);
   const isQuizComplete = useSelector(selectQuizComplete);
 
-  const totalAward = useMemo(() => questions[currentIndex - 1] || '$0', [questions, currentIndex]);
+  const totalAward = useMemo(() => (
+    questions[currentIndex - 1] || '$0'
+  ), [questions, currentIndex]);
 
   const handleTryAgain = useCallback(() => {
     dispatch(resetQuiz());
@@ -47,13 +52,25 @@ function ResultsPage() {
 
   return (
     <div className={style.wrapper}>
-      <SvgThumbUp />
+      <div className={style.svgWrapper}>
+        <SvgThumbUp />
+      </div>
 
       <div className={style.content}>
         <p className={style.score}>Total score:</p>
-        <span className={style.award}>{totalAward}</span>
+        <span className={style.award}>
+          {totalAward}
+          {' '}
+          earned
+        </span>
 
-        <SButton className={style.button} onClick={handleTryAgain}>Try again</SButton>
+        <SButton
+          className={style.button}
+          onClick={handleTryAgain}
+          size={isLargeScreen ? 'md' : 'sm'}
+        >
+          Try again
+        </SButton>
       </div>
     </div>
   );

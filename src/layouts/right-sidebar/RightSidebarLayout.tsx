@@ -1,4 +1,5 @@
-import React, { PropsWithChildren } from 'react';
+import React, { PropsWithChildren, useState } from 'react';
+import classNames from 'classnames';
 import styles from './RightSidebar.module.css';
 
 const RightSidebarAside: React.FC<PropsWithChildren> = ({ children }) => children;
@@ -15,12 +16,29 @@ const RightSidebarLayout: React.FC<PropsWithChildren> = function RightSidebarLay
     (child) => React.isValidElement(child) && child.type === RightSidebarAside,
   );
 
-  return (
-    <div className={styles.rightSidebarLayout}>
-      <main className={styles.main}>{mainContent}</main>
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
-      <aside className={styles.sidebar}>{sidebarContent}</aside>
-    </div>
+  function toggleSidebar() {
+    setIsSidebarOpen(!isSidebarOpen);
+  }
+
+  const sidebarClasses = classNames(
+    styles.sidebar,
+    {
+      [styles.open]: isSidebarOpen,
+    },
+  );
+
+  return (
+    <main className={styles.rightSidebarLayout}>
+      <div className={styles.burgerIcon} onClick={toggleSidebar} role="presentation">
+        { isSidebarOpen ? '✖' : '☰' }
+      </div>
+
+      <div className={styles.main}>{mainContent}</div>
+
+      <aside className={sidebarClasses}>{sidebarContent}</aside>
+    </main>
   );
 };
 

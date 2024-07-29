@@ -1,6 +1,8 @@
 .honeycomb {
     display: flex;
     align-items: center;
+    position: relative;
+    width: auto;
 }
 
 .honeycomb:hover svg {
@@ -12,22 +14,19 @@
 }
 
 .honeycomb.md {
-    width: 405px;
     height: 72px;
 }
 
 .honeycomb.md .content {
-    padding: 25px 32px 0 32px;
     font-size: 20px;
 }
 
 .honeycomb.sm {
-    width: 405px;
-    height: 40px;
+    height: 56px;
 }
 
 .honeycomb.sm .content {
-    padding: 10px 32px 0 32px;
+    font-size: 14px;
 }
 
 .honeycomb.disabled .svg {
@@ -73,6 +72,7 @@
 }
 
 .rectangle {
+    display: flex;
     position: relative;
     flex: 1;
     height: 100%;
@@ -88,5 +88,9 @@
 }
 
 .content {
-    position: relative;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 32px;
+    width: calc(100% - 64px); /* left*2 */
 }

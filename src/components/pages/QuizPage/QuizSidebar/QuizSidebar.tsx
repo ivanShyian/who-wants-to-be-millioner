@@ -13,13 +13,14 @@ function QuizSidebar() {
     <div className={styles.sidebar}>
       { prizeAmounts.map((prizeAmount, index) => (
         <SHoneycomb
+          className={styles.item}
           key={prizeAmount}
           size="sm"
           readonly
           disabled={currentIndex > index}
           active={currentIndex === index}
         >
-          <p className={styles.item}>{prizeAmount}</p>
+          <p className={styles.prize}>{prizeAmount}</p>
         </SHoneycomb>
       )).reverse()}
     </div>
