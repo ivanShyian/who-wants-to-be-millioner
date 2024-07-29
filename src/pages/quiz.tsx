@@ -1,32 +1,28 @@
-import React, {ReactElement} from 'react';
+import React, { ReactElement } from 'react';
 import {
   RightSidebarAside,
   RightSidebarLayout,
   RightSidebarMain,
 } from '@/layouts';
-import QuizPage from '@/components/pages/QuizPage/QuizPage';
-import {QuizSidebar} from '@/components/pages';
-import {questions} from '@/config';
-import QuizWrapper from '@/components/pages/QuizPage/QuizWrapper/QuizWrapper';
+import { QuizSidebar, QuizPage } from '@/components/pages';
 
-const Quiz = () => {
+function Quiz() {
   return (
-      <QuizWrapper questions={questions}>
-        { () => (
-            <QuizPage />
-        ) }
-      </QuizWrapper>
-  )
+    <QuizPage />
+  );
 }
 
 Quiz.getLayout = function getLayout(page: ReactElement) {
   return (
-      <RightSidebarLayout>
-        <RightSidebarMain>{page}</RightSidebarMain>
-        <RightSidebarAside>
-          {/*<QuizSidebar questionsList= />*/}
-        </RightSidebarAside>
-      </RightSidebarLayout>
+    <RightSidebarLayout>
+      <RightSidebarMain>
+        {page}
+      </RightSidebarMain>
+
+      <RightSidebarAside>
+        <QuizSidebar />
+      </RightSidebarAside>
+    </RightSidebarLayout>
   );
 };
 

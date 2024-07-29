@@ -1,0 +1,9 @@
+.item {
+    flex-basis: 50%;
+}
+
+.counter {
+    font-size: 20px;
+    color: var(--orange-100);
+    margin-right: 8px;
+}

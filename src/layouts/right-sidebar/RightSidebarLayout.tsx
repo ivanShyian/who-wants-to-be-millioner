@@ -1,28 +1,27 @@
-import React, {PropsWithChildren} from 'react';
+import React, { PropsWithChildren } from 'react';
 import styles from './RightSidebar.module.css';
 
-type SlotComponentProps = PropsWithChildren<{}>;
+const RightSidebarAside: React.FC<PropsWithChildren> = ({ children }) => children;
+const RightSidebarMain: React.FC<PropsWithChildren> = ({ children }) => children;
 
-const RightSidebarLayout: React.FC<PropsWithChildren<{}>> = ({children}) => {
+const RightSidebarLayout: React.FC<PropsWithChildren> = function RightSidebarLayout({
+  children,
+}) {
   const mainContent = React.Children.toArray(children).find(
-      (child) => React.isValidElement(child) && child.type === RightSidebarMain,
+    (child) => React.isValidElement(child) && child.type === RightSidebarMain,
   );
 
   const sidebarContent = React.Children.toArray(children).find(
-      (child) => React.isValidElement(child) && child.type ===
-          RightSidebarAside,
+    (child) => React.isValidElement(child) && child.type === RightSidebarAside,
   );
 
   return (
-      <div className={styles.rightSidebarLayout}>
-        <main className={styles.main}>{mainContent}</main>
+    <div className={styles.rightSidebarLayout}>
+      <main className={styles.main}>{mainContent}</main>
 
-        <aside className={styles.sidebar}>{sidebarContent}</aside>
-      </div>
+      <aside className={styles.sidebar}>{sidebarContent}</aside>
+    </div>
   );
 };
 
-const RightSidebarAside: React.FC<SlotComponentProps> = ({children}) => <>{children}</>;
-const RightSidebarMain: React.FC<SlotComponentProps> = ({children}) => <>{children}</>;
-
-export {RightSidebarLayout, RightSidebarAside, RightSidebarMain};
+export { RightSidebarLayout, RightSidebarAside, RightSidebarMain };

@@ -1,2 +1,5 @@
-export * from './QuizPage';
+import QuizPage from './QuizPage';
+
 export * from './QuizSidebar';
+
+export { QuizPage };

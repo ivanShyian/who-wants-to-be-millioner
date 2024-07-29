@@ -1,14 +1,12 @@
-import React, {PropsWithChildren} from 'react';
+import React, { PropsWithChildren } from 'react';
 import styles from './DefaultLayout.module.css';
 
-interface DefaultLayoutProps extends PropsWithChildren<{}> {}
-
-const DefaultLayout: React.FC<DefaultLayoutProps> = ({children}) => {
+function DefaultLayout({ children }: PropsWithChildren) {
   return (
-      <div className={styles.defaultLayout}>
-        <main className={styles.main}>{children}</main>
-      </div>
+    <div className={styles.defaultLayout}>
+      <main className={styles.main}>{children}</main>
+    </div>
   );
-};
+}
 
 export default DefaultLayout;

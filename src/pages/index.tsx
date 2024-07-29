@@ -1,14 +1,14 @@
-import React, {ReactElement} from 'react';
-import {IndexPage} from '@/components/pages';
-import {DefaultLayout} from '@/layouts';
+import React, { ReactElement } from 'react';
+import { IndexPage } from '@/components/pages';
+import { DefaultLayout } from '@/layouts';
 
 function Index() {
-  return <IndexPage/>;
+  return <IndexPage />;
 }
 
 Index.getLayout = function getLayout(page: ReactElement) {
   return (
-      <DefaultLayout>{page}</DefaultLayout>
+    <DefaultLayout>{page}</DefaultLayout>
   );
 };
 

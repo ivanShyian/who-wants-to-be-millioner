@@ -5,7 +5,6 @@
 
 .honeycomb:hover svg {
     stroke: var(--orange-100);
-
 }
 
 .honeycomb:hover .path {
@@ -17,11 +16,60 @@
     height: 72px;
 }
 
+.honeycomb.md .content {
+    padding: 25px 32px 0 32px;
+    font-size: 20px;
+}
+
+.honeycomb.sm {
+    width: 405px;
+    height: 40px;
+}
+
+.honeycomb.sm .content {
+    padding: 10px 32px 0 32px;
+}
+
+.honeycomb.disabled .svg {
+    stroke: var(--black-40);
+}
+
+.honeycomb.disabled .content {
+    color: var(--black-40);
+}
+
+.honeycomb.readonly {
+    pointer-events: none;
+}
+
+.honeycomb.active .svg {
+    stroke: var(--orange-100);
+}
+
+.honeycomb.active .content {
+    color: var(--orange-100);
+}
+
+.honeycomb.wrong .svg {
+    fill: var(--red-5);
+    stroke: var(--red-100);
+}
+
+.honeycomb.correct .svg {
+    fill: var(--green-5);
+    stroke: var(--green-100);
+}
+
+.honeycomb:active .svg {
+    fill: var(--orange-5);
+    stroke: var(--orange-100);
+}
+
 .path {
     display: block;
     background: var(--black-40);
     height: 1px;
-    flex-basis: 10%;
+    flex-basis: 5%;
 }
 
 .rectangle {
@@ -35,11 +83,10 @@
     position: absolute;
     width: 100%;
     height: 100%;
+    fill: var(--white-100);
     stroke: var(--black-40);
 }
 
 .content {
-    padding-left: 32px;
-    padding-top: 25px;
     position: relative;
 }

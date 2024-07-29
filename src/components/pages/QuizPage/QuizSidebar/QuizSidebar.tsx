@@ -1,17 +1,28 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
+import { selectCurrentIndex, selectPrizeAmounts } from '@/store/slices';
 
-interface QuizSidebarProps {
-  questionsList: {
-    question: string;
-    options: string[];
-    answer_index: number;
-    prize_amount: number;
-  }
-}
+import SHoneycomb from '@/components/ui/SHoneycomb/SHoneycomb';
+import styles from './QuizSidebar.module.css';
 
-const QuizSidebar: React.FC<QuizSidebarProps> = (props) => {
+function QuizSidebar() {
+  const currentIndex = useSelector(selectCurrentIndex);
+  const prizeAmounts = useSelector(selectPrizeAmounts);
+
   return (
-      <div>SIDEBAR</div>
+    <div className={styles.sidebar}>
+      { prizeAmounts.map((prizeAmount, index) => (
+        <SHoneycomb
+          key={prizeAmount}
+          size="sm"
+          readonly
+          disabled={currentIndex > index}
+          active={currentIndex === index}
+        >
+          <p className={styles.item}>{prizeAmount}</p>
+        </SHoneycomb>
+      )).reverse()}
+    </div>
   );
 }
 

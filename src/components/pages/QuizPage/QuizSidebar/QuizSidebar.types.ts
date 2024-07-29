@@ -3,7 +3,7 @@ export namespace QuizSidebarTypes {
     questionsList: {
       question: string;
       options: string[];
-      answer_index: number;
+      answer_index: number[];
       prize_amount: number;
     }
   }
