@@ -1,0 +1,47 @@
+.button {
+    border: none;
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+    min-width: 296px;
+}
+
+/* Variants */
+.button.primary {
+    background-color: var(--orange-100);
+    color: white;
+}
+
+.button.primary:hover {
+    background-color: var(--orange-80);
+}
+
+.button.primary:active {
+    background-color: var(--orange-120);
+}
+
+/* Sizes */
+.button.xs {
+    padding: 4px 8px;
+    font-size: 0.875rem;
+}
+
+.button.md {
+    padding: 20px 24px;
+    font-size: 20px;
+}
+
+.button.lg {
+    padding: 12px 24px;
+    font-size: 1.125rem;
+}
+
+/* States */
+
+.button.disabled {
+
+}

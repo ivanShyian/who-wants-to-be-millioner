@@ -1,0 +1,45 @@
+.honeycomb {
+    display: flex;
+    align-items: center;
+}
+
+.honeycomb:hover svg {
+    stroke: var(--orange-100);
+
+}
+
+.honeycomb:hover .path {
+    background: var(--orange-100);
+}
+
+.honeycomb.md {
+    width: 405px;
+    height: 72px;
+}
+
+.path {
+    display: block;
+    background: var(--black-40);
+    height: 1px;
+    flex-basis: 10%;
+}
+
+.rectangle {
+    position: relative;
+    flex: 1;
+    height: 100%;
+    cursor: pointer;
+}
+
+.svg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    stroke: var(--black-40);
+}
+
+.content {
+    padding-left: 32px;
+    padding-top: 25px;
+    position: relative;
+}
